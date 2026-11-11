@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <div class="dashboard">
+      <h2>Dashboard</h2>
+      <p>Welcome to Admin Panel</p>
+    
+      <div class="admin-actions">
+        <button class="add-btn">Add Item</button>
+        <button class="manage-btn">Manage Items</button>
+      </div>
+    </div>
+   
+<div class="add-section" style="display: none;">
+  <h2>Add New Item</h2>
+
+  <input type="text" class="item-name" placeholder="Enter item name">
+
+  <input type="file" class="item-image" accept="image/*">
+
+  <button class="save-btn">Save Item</button>
+
+  <ul class="item-list"></ul>
+</div>
+
+
+<div class="manage-section" style="display: none;">
+  <h2>Manage Items</h2>
+
+  <ul class="manage-list"></ul>
+</div>
+    
+  </body>
+  <script src="script.js"></script>
+</html>
