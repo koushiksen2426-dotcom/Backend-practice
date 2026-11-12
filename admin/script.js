@@ -1,3 +1,4 @@
+
 let add_btn = document.querySelector(".add-btn");
 let manage_btn = document.querySelector(".manage-btn");
 
@@ -21,7 +22,6 @@ manage_btn.addEventListener("click", () => {
   manage_section.style.display = "block";
 });
 
-
 let save_btn = document.querySelector(".save-btn");
 let item_name = document.querySelector(".item-name");
 let item_image = document.querySelector(".item-image");
@@ -29,7 +29,8 @@ let item_list = document.querySelector(".item-list");
 let manage_list = document.querySelector(".manage-list");
 
 save_btn.addEventListener("click", async (e) => {
-  e.preventDefault()
+  e.preventDefault();
+
   let name = item_name.value;
   let image = item_image.files[0];
 
@@ -48,7 +49,6 @@ save_btn.addEventListener("click", async (e) => {
   li.appendChild(img);
 
   item_list.appendChild(li);
- 
 
   let manage_li = li.cloneNode(true);
   let manage_delete_btn = document.createElement("button");
@@ -75,7 +75,6 @@ save_btn.addEventListener("click", async (e) => {
     }
 
     let change_image = confirm("Do you want to change the image?");
-    
 
     if (change_image) {
       let new_image_input = document.createElement("input");
@@ -98,61 +97,54 @@ save_btn.addEventListener("click", async (e) => {
   manage_li.appendChild(edit_btn);
   manage_list.appendChild(manage_li);
 
-
   const formData = new FormData();
 
   formData.append("name", item_name.value);
   formData.append("image", item_image.files[0]);
 
-  const response = await fetch("http://localhost:4000/api/items/add", {
+  const response = await fetch("https://backend-practice-pa0w.onrender.com/api/items/add", {
     method: "POST",
     body: formData
   });
-
-
-
-
 
   const data = await response.json();
 
   alert(data.message);
 
- 
-
-
   item_name.value = "";
   item_image.value = "";
 
-  loadItems()
-
-});   
+  loadItems();
+});
 
 async function loadItems() {
-  const response = await fetch("http://localhost:4000/api/items/list");
+  const response = await fetch("https://backend-practice-pa0w.onrender.com/api/items/list");
   const data = await response.json();
+
   manage_list.innerHTML = "";
+
   data.items.forEach((item) => {
     const li = document.createElement("li");
     li.textContent = item.name;
+
     const manage_delete_btn = document.createElement("button");
     manage_delete_btn.textContent = "Delete";
+
     li.appendChild(manage_delete_btn);
     manage_list.appendChild(li);
+
     manage_delete_btn.addEventListener("click", async () => {
-      const response = await fetch(`http://localhost:4000/api/items/${item._id}`,
-      
-        {
+      const response = await fetch(`https://backend-practice-pa0w.onrender.com/api/items/${item._id}`, {
         method: "DELETE"
-        });
+      });
+
       const result = await response.json();
+
       if (result.success) {
         li.remove();
       }
     });
-  
-  
-  })
+  });
 }
 
 loadItems();
-

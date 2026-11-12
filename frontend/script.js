@@ -63,12 +63,13 @@ let form = document.querySelector(".form");
 form.addEventListener("submit", async (e) => {
   e.preventDefault()
 
-  
+
 
 
 
   const response = await fetch(
-    `http://localhost:4000/api/auth/${isLogin ? "login" : "register"}`,
+
+    `https://backend-practice-pa0w.onrender.com/api/auth/${isLogin ? "login" : "register"}`,
     {
       method: "POST",
       headers: {
@@ -101,7 +102,7 @@ form.addEventListener("submit", async (e) => {
     const token = localStorage.getItem("token");
 
     const profileResponse = await fetch(
-      "http://localhost:4000/api/auth/profile",
+      "httpss://backend-practice-pa0w.onrender.com/api/auth/profile",
       {
         method: "GET",
         headers: {
@@ -133,13 +134,13 @@ if (localStorage.getItem("token")) {
 logout_btn.addEventListener("click", () => {
   localStorage.removeItem("token");
   alert("Logged out successfully!");
-  
+
   logout_btn.style.display = "none";
   account_img.style.display = "block";
 });
 
 async function showItem() {
-  const response = await fetch("http://localhost:4000/api/items/list");
+  const response = await fetch("https://backend-practice-pa0w.onrender.com/api/items/list");
 
   const data = await response.json();
 
@@ -150,7 +151,7 @@ async function showItem() {
   data.items.forEach((item) => {
     const div = document.createElement("div");
     const img = document.createElement("img");
-    img.src = `http://localhost:4000/uploads/${item.image}`;
+    img.src = `https://backend-practice-pa0w.onrender.com/uploads/${item.image}`;
     console.log(item);
     console.log(img.src);
     const name = document.createElement('h3');
@@ -166,7 +167,7 @@ async function showItem() {
 showItem();
 
 async function removeItem(item) {
-  const response = await fetch(`http://localhost:4000/api/items/${item._id}`, {
+  const response = await fetch(`https://backend-practice-pa0w.onrender.com/api/items/${item._id}`, {
     method: "DELETE"
   })
   const data = await response.json();
