@@ -15,6 +15,10 @@ dns.setServers([
 
 const app = express();
 
+app.get("/", (req, res) => {
+  res.send("API Working");
+});
+
 connectDB();
 
 app.use(cors())
