@@ -117,6 +117,7 @@ form.addEventListener("submit", async (e) => {
 
 })
 
+let logout_btn = document.querySelector(".logout-btn");
 
 if (localStorage.getItem("token")) {
   logout_btn.style.display = "block";

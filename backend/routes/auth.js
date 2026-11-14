@@ -61,7 +61,8 @@ router.post("/register", async (req, res) => {
 
   res.json({
     success: true,
-    message: "User registered successfully"
+    message: "User registered successfully",
+    token: token
   });
 
 
