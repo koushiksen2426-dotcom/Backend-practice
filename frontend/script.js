@@ -84,6 +84,8 @@ form.addEventListener("submit", async (e) => {
   alert(data.message);
   console.log("Success value:", data.success);
 
+  let logout_btn = document.querySelector(".logout-btn");
+
 
   if (data.success && data.token) {
     localStorage.setItem("token", data.token);
@@ -115,7 +117,6 @@ form.addEventListener("submit", async (e) => {
 
 })
 
-let logout_btn = document.querySelector(".logout-btn");
 
 if (localStorage.getItem("token")) {
   logout_btn.style.display = "block";
