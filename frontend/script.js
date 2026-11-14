@@ -35,17 +35,7 @@ account_link.addEventListener("click", (e) => {
 
 
 
-  // if (account_link.innerHTML == "Log in") {
-  //   title.innerHTML = " Log in";
-  //   name.style.display = "none";
-  //   button.innerText = "Log In";
-  //   account_statement.innerHTML = "Have no accuont?"
-  //   account_link.innerText = "Sign Up"
 
-  // }
-  // else {
-  //   return
-  // }
 })
 
 
@@ -120,6 +110,8 @@ form.addEventListener("submit", async (e) => {
     form.reset();
     varifier.classList.remove("show");
   }
+
+  console.log(data);
 
 })
 
