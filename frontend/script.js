@@ -145,7 +145,7 @@ async function showItem() {
   data.items.forEach((item) => {
     const div = document.createElement("div");
     const img = document.createElement("img");
-    img.src = `https://backend-practice-pa0w.onrender.com/uploads/${item.image}`;
+    img.src = item.image;
     console.log(item);
     console.log(img.src);
     const name = document.createElement('h3');
